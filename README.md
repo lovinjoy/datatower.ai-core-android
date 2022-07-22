@@ -8,7 +8,7 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 
 登录后，进入**项目设置**
 
-
+![image-20220722142146010](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-project-setting.png)
 
 切换到**系统设置**，点击**创建项目**
 
