@@ -129,7 +129,7 @@ AdManager.showInterstitialAd(object: OnAdShowCallback(){
         	val value = ad.getValue() //广告的价值
         	val currency = ad.getCurrency() //货币
         	val precision = ad.getPrecision() // 精确度
-        	ROIQueryAdReport.reportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, value, currency, precision)
+        	ROIQueryAdReport.reportPaid(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, value, currency, precision)
       }
  })
     
