@@ -18,7 +18,8 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 
 ![image-setting-name](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-setting-name.png)
 
-创建成功后可以看到app id
+创建成功后可以看到APP_ID
+
 ![image-appid-view](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-appid-view.png)
 
 记下APP_ID，初始化SDK会用到
