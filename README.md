@@ -2,13 +2,13 @@
 
 ### 开通账号
 
-LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登录https://datatower.ai/可以创建项目
+LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登录https://datatower.ai/ 可以创建项目
 
 ### 创建项目
 
 登录后，进入**项目设置**
 
-![image-20220722140636772](/Users/shijunxing/Documents/image-20220722140636772.png)
+
 
 切换到**系统设置**，点击**创建项目**
 
@@ -88,46 +88,47 @@ SDK  内置了一些有关广告相关的行为事件，可供开发者在收到
  * 一次展示Admob插页广告的过程
  */
  
- //广告位，比如这页面是主页
- val location = "main"
+//广告位，比如这页面是主页
+val location = "main"
  
- //Admob 广告单元
- val adUnit = "ca-app-pub-3940256099942544/1033173712"
+//Admob 广告单元
+val adUnit = "ca-app-pub-3940256099942544/1033173712"
  
- //整个过程的行为系列标识
- var seq = ROIQueryAdReport.generateUUID()
+//整个过程的行为系列标识
+var seq = ROIQueryAdReport.generateUUID()
  
- //1.Admob 开始加载广告
- AdManager.loadInterstitialAd(this, adUnit); 
+//1.Admob 开始加载广告
+AdManager.loadInterstitialAd(this, adUnit); 
 
- //2.即将展示广告
-	ROIQueryAdReport.reportToShow(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
-	//3.展示广告
- AdManager.showInterstitialAd(object: OnAdShowCallback(){
-   		override fun onAdShowed(){
-        //4. 广告展示成功
-   			 ROIQueryAdReport.reportShow(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, 		 			seq)
-      }
-   		override fun onAdFailedToShow(adError: AdError){
-        //5. 广告展示失败
-     ROIQueryAdReport.reportShowFailed(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, adError.code, adError.msg)
-      }
-   		override fun onAdClicked(){
-        //6. 广告被点击
-      ROIQueryAdReport.reportClick(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
-      ROIQueryAdReport.reportConversionByClick(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
-      }
+//2.即将展示广告
+ROIQueryAdReport.reportToShow(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
+//3.展示广告
+AdManager.showInterstitialAd(object: OnAdShowCallback(){
+   	override fun onAdShowed(){
+        	//4. 广告展示成功
+   		ROIQueryAdReport.reportShow(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location,seq)
+    	}
+   	override fun onAdFailedToShow(adError: AdError){
+      		//5. 广告展示失败
+    		ROIQueryAdReport.reportShowFailed(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, adError.code, adError.msg)
+    	}
+   	override fun onAdClicked(){
+        	//6. 广告被点击
+     		ROIQueryAdReport.reportClick(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
+      		ROIQueryAdReport.reportConversionByClick(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
+    	}
    		
-   		override fun onAdClosed(){
-        //7. 广告关闭
-      ROIQueryAdReport.reportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
-      }
+   	override fun onAdClosed(){
+        	//7. 广告关闭
+     		ROIQueryAdReport.reportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
+    	}
    
-   		override fun onAdRevenuePaid(ad: AdInfo){
-        val value = ad.getValue() //广告的价值
-        val currency = ad.getCurrency() //货币
-        val precision = ad.getPrecision() // 精确度
-        ROIQueryAdReport.reportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, value, currency, precision)
+   	override fun onAdRevenuePaid(ad: AdInfo){
+		//8. 广告用户层级展示数据
+        	val value = ad.getValue() //广告的价值
+        	val currency = ad.getCurrency() //货币
+        	val precision = ad.getPrecision() // 精确度
+        	ROIQueryAdReport.reportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, value, currency, precision)
       }
  })
     
@@ -139,7 +140,7 @@ SDK  内置了一些有关广告相关的行为事件，可供开发者在收到
 ```kotlin
 override fun onAdRewared(){
      ROIQueryAdReport.reportRewared(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
-      ROIQueryAdReport.reportConversionByRewared(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
+     ROIQueryAdReport.reportConversionByRewared(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
 }
 ```
 
@@ -152,11 +153,11 @@ override fun onAdRewared(){
 ```kotlin
 //聚合广告平台一般会返回广告相关的信息 AdInfo
 override fun onAdShowed(ad: AdInfo){
-  			//需自行实现 getAdPlatform() 、getAdUnit()方法
-  			val adPlatform = getAdPlatform(ad)
-  			val	adUnit = getAdUnit(ad)
+  	//需自行实现 getAdPlatform() 、getAdUnit()方法
+  	val adPlatform = getAdPlatform(ad)
+  	val adUnit = getAdUnit(ad)
         //4. 广告展示成功
-   			 ROIQueryAdReport.reportShow(adUnit, AdType.INTERSTITIAL,adPlatform,location, 		 			seq)
+   	ROIQueryAdReport.reportShow(adUnit, AdType.INTERSTITIAL,adPlatform,location, seq)
       }
 ```
 
