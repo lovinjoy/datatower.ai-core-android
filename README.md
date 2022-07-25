@@ -49,7 +49,7 @@ allprojects {
 dependencies {
     ...
 
-    implementation 'com.lovinjoy:datatowerai-core:1.0.0'
+    implementation 'com.lovinjoy:datatowerai-core:1.2.36'
 }
 ```
 
