@@ -8,17 +8,19 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 
 登录后，进入**项目设置**
 
-
+![image-image-project-setting](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-project-setting.png)
 
 切换到**系统设置**，点击**创建项目**
 
-![image-20220722142146010](/Users/shijunxing/Documents/image-20220722142146010.png)
+![image-create-project](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-create-project.png)
 
-输入项目名称
+输入项目名称，如：simple_android
 
-![image.png](https://files.slack.com/files-pri/TKG29QH9A-F03QDCLQFFC/image.png)
+![image-setting-name](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-setting-name.png)
 
-![image.png](https://files.slack.com/files-pri/TKG29QH9A-F03QS2480BT/image.png)
+创建成功后可以看到APP_ID
+
+![image-appid-view](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/image-appid-view.png)
 
 记下APP_ID，初始化SDK会用到
 
@@ -128,7 +130,7 @@ AdManager.showInterstitialAd(object: OnAdShowCallback(){
         	val value = ad.getValue() //广告的价值
         	val currency = ad.getCurrency() //货币
         	val precision = ad.getPrecision() // 精确度
-        	ROIQueryAdReport.reportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, value, currency, precision)
+        	ROIQueryAdReport.reportPaid(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, value, currency, precision)
       }
  })
     
