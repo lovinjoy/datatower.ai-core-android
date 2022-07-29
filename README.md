@@ -142,8 +142,8 @@ AdManager.showInterstitialAd(object: OnAdShowCallback(){
 
 ```kotlin
 override fun onAdRewared(){
-     ROIQueryAdReport.reportRewared(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
-     ROIQueryAdReport.reportConversionByRewared(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
+     ROIQueryAdReport.reportRewared(adUnit, AdType.REWARDED, AdPlatform.ADMOB, location, seq)
+     ROIQueryAdReport.reportConversionByRewared(adUnit, AdType.REWARDED, AdPlatform.ADMOB, location, seq)
 }
 ```
 
