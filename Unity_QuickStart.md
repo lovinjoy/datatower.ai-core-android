@@ -32,16 +32,10 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 
 在项目根目录下 build.gradle 文件中添加 `mavenCentral`仓库
 
-```groovy
-allprojects {
-    repositories {
-        ...
-        mavenCentral()
-	jcenter()
-        maven { url 'https://www.jitpack.io' }
-    }
-}
-```
+- 下载 Unity SDK 资源包  （贴入github地址）
+- 将上述文件通过 Assets → Import Package → Custom Package 添加到项目中
+- 将 ROIQuerySDK/ROIQuerySDK/ 目录下的 ROIQuerySDK.prefab 预制体拖到需要加载的位置(一般放在第一个场景)
+ ![image-appid-view](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/v2/cover/boxcnxkWKL9pUdE58oHBGARLtIF/?fallback_source=1&height=1280&mount_node_token=doxcn6QkqWAA2cYQ6mOeGRIQZmc&mount_point=docx_image&policy=equal&width=1280)
 
 在项目主工程目录下 build.gradle 文件中添加  SDK 依赖
 
