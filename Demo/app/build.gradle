@@ -49,7 +49,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     //sdk依赖
-    implementation 'com.lovinjoy:datatowerai-core:1.2.36'
+    implementation 'com.lovinjoy:datatowerai-core:1.2.38'
 
 
 }
