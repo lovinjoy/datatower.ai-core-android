@@ -31,7 +31,9 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 ### 集成
 
 1.下载 Unity SDK 资源包 
+
 2.将上述文件通过 Assets → Import Package → Custom Package 添加到项目中
+
 3.将 ROIQuerySDK/ROIQuerySDK/ 目录下的 ROIQuerySDK.prefab 预制体拖到需要加载的位置(一般放在第一个场景)
 
  ![image-appid-view](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/unity_1.png)
@@ -40,10 +42,11 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 
  ![image-appid-view](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/unity_2.png)
  
-	- App Id：项目Id，即上一步申请到的 APP_ID，必须填
-	- Channel：渠道名称，打多渠道包时需要用到，如gp、app_store，默认为“”，可不填
-	- Is Debug：是否打开调试，调试模式下将打印log, 默认为false
-	- Log Level：log 的级别，默认为 LogUtils.V，仅在 isDebug = true 有效
+- App Id：项目Id，即上一步申请到的 APP_ID，必须填
+- Channel：渠道名称，打多渠道包时需要用到，如gp、app_store，默认为“”，可不填
+- Is Debug：是否打开调试，调试模式下将打印log, 默认为false
+- Log Level：log 的级别，默认为 LogUtils.V，仅在 isDebug = true 有效
+	
 
 
 ### 初始化
