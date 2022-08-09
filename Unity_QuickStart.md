@@ -32,42 +32,35 @@ LovinJoy给您开通产品服务后，会提供一个超级管理员账号，登
 
 在项目根目录下 build.gradle 文件中添加 `mavenCentral`仓库
 
-- 下载 Unity SDK 资源包  （贴入github地址）
+- 下载 Unity SDK 资源包 
 - 将上述文件通过 Assets → Import Package → Custom Package 添加到项目中
 - 将 ROIQuerySDK/ROIQuerySDK/ 目录下的 ROIQuerySDK.prefab 预制体拖到需要加载的位置(一般放在第一个场景)
- ![image-appid-view](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/v2/cover/boxcnxkWKL9pUdE58oHBGARLtIF/?fallback_source=1&height=1280&mount_node_token=doxcn6QkqWAA2cYQ6mOeGRIQZmc&mount_point=docx_image&policy=equal&width=1280)
+ ![image-appid-view](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/unity_1.png)
+- 配置SDK
+ ![image-appid-view](https://github.com/lovinjoy/datatower.ai-core-android/blob/main/resurce/unity_2.png)
+	- App Id：项目Id，即上一步申请到的 APP_ID，必须填
+	- Channel：渠道名称，打多渠道包时需要用到，如gp、app_store，默认为“”，可不填
+	- Is Debug：是否打开调试，调试模式下将打印log, 默认为false
+	- Log Level：log 的级别，默认为 LogUtils.V，仅在 isDebug = true 有效
 
-在项目主工程目录下 build.gradle 文件中添加  SDK 依赖
-
-```groovy
-dependencies {
-    ...
-
-    implementation 'com.lovinjoy:datatowerai-core:1.2.38'
-}
-```
 
 ### 初始化
 
-在Application初始化SDK
+- 拖入场景自动初始化
 
-```kotlin
-//填入上一步申请到的APP_ID
-ROIQuery.initSDK(this, "app id")
-```
 
 # 自定义事件
 
 调用track()方法来自定义一个事件，并自动上报
 
-```kotlin
-HashMap<String, Object> properties = new HashMap<>();
-properties.put("test_property_3", false);
-properties.put("test_property_4", 2.3);
+```c#
+Dictionary<string, object> properties = Dictionary<string, object>();
+properties.Add("test_property_3", false);
+properties.Add("test_property_4", 2.3);
 
-ROIQueryAnalytics.track("test_track", properties);
+ROIQueryAnalytics.Track("test_track", properties);
 // or 不传属性
-ROIQueryAnalytics.track("test_track");
+ROIQueryAnalytics.Track("test_track");
 ```
 
 
