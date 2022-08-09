@@ -99,33 +99,33 @@ AdManager.loadInterstitialAd(this, adUnit);
 ROIQueryAdReport.ReportToShow(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
 //3.展示广告
 AdManager.showInterstitialAd(object: OnAdShowCallback(){
-   	override fun onAdShowed(){
+   	override void onAdShowed(){
         	//4. 广告展示成功
    		ROIQueryAdReport.ReportShow(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location,seq)
     	}
-   	override fun onAdFailedToShow(adError: AdError){
+   	override void onAdFailedToShow(adError: AdError){
       		//5. 广告展示失败
     		ROIQueryAdReport.ReportShowFailed(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq, adError.code, adError.msg)
     	}
-   	override fun onAdClicked(){
+   	override void onAdClicked(){
         	//6. 广告被点击
      		ROIQueryAdReport.ReportClick(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
       		ROIQueryAdReport.ReportConversionByClick(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
     	}
    		
-   	override fun onAdClosed(){
+   	override void onAdClosed(){
         	//7. 广告关闭
      		ROIQueryAdReport.ReportClose(adUnit, AdType.INTERSTITIAL, AdPlatform.ADMOB, location, seq)
     	}
 	
 	
-	override fun onAdRewared(){
+	override void onAdRewared(){
 		//对于激励广告，会有获得激励回调
     		 ROIQueryAdReport.ReportRewared(adUnit, AdType.REWARDED, AdPlatform.ADMOB, location, seq)
     		 ROIQueryAdReport.ReportConversionByRewared(adUnit, AdType.REWARDED, AdPlatform.ADMOB, location, seq)
 	}
    
-   	override fun onAdRevenuePaid(ad: AdInfo){
+   	override void onAdRevenuePaid(AdInfo ad){
 		//8. 广告用户层级展示数据
         	string value = ad.getValue() //广告的价值
         	string currency = ad.getCurrency() //货币
@@ -147,12 +147,12 @@ AdManager.showInterstitialAd(object: OnAdShowCallback(){
 
 ```c#
 //聚合广告平台一般会返回广告相关的信息 AdInfo
-override fun onAdShowed(ad: AdInfo){
+override void onAdShowed(AdInfo ad){
   	//需自行实现 getAdPlatform() 、getAdUnit()方法
   	AdPlatform adPlatform = getAdPlatform(ad)
   	string adUnit = getAdUnit(ad)
         //4. 广告展示成功
-   	ROIQueryAdReport.reportShow(adUnit, AdType.INTERSTITIAL,adPlatform,location, seq)
+   	ROIQueryAdReport.ReportShow(adUnit, AdType.INTERSTITIAL,adPlatform,location, seq)
       }
 ```
 
