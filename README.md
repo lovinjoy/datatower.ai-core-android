@@ -46,11 +46,16 @@ allprojects {
 在项目主工程目录下 build.gradle 文件中添加  SDK 依赖
 
 ```groovy
+android{
+  compileSdkVersion 31 //自1.2.44 版本开始，应用编译版本需>=31
+}
+
 dependencies {
     ...
 
-    implementation 'com.lovinjoy:datatowerai-core:1.2.38'
+    implementation 'com.lovinjoy:datatowerai-core:1.2.44'
 }
+
 ```
 
 ### 初始化
@@ -61,6 +66,8 @@ dependencies {
 //填入上一步申请到的APP_ID
 ROIQuery.initSDK(this, "app id")
 ```
+
+
 
 # 自定义事件
 
