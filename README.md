@@ -53,7 +53,7 @@ android{
 dependencies {
     ...
 
-    implementation 'com.lovinjoy:datatowerai-core:1.2.44'
+    implementation 'com.lovinjoy:datatowerai-core:1.2.50'
 }
 
 ```
